@@ -3,8 +3,7 @@ version: '3.9'
 services:
   productservice:
     build: 
-      context: ../product-service
-      dockerfile: ./Dockerfile
+      context: ..
 
     command: /bin/sh -c "while sleep 1000; do :; done"
 
