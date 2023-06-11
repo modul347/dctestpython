@@ -13,8 +13,8 @@ services:
 
   db:
     build: 
-      context: .
-      dockerfile: ./DockerfileDb
+      context: ../db
+      dockerfile: DockerfileDb
 
     command: "--init-file /data/application/init.sql --default-authentication-plugin=mysql_native_password"
     volumes:
