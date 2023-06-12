@@ -49,8 +49,8 @@ def get_products():
         return 'An exception occurred while retrieving all products', 500
 
 
-# curl -v http://localhost:5000/product/1
-@app.route('/product/<int:id>')
+# curl -v http://localhost:5000/products/1
+@app.route('/products/<int:id>')
 def get_product(id):
     log.debug(f'GET /product/{id}')
 
@@ -67,7 +67,7 @@ def get_product(id):
 
 
 # curl --header "Content-Type: application/json" --request POST --data '{"name": "Product 3"}' -v http://localhost:5000/product
-@app.route('/product', methods=['POST'])
+@app.route('/products', methods=['POST'])
 def post_product():
 
     # Retrieve the product from the request body
@@ -91,7 +91,7 @@ def post_product():
 # curl --header "Content-Type: application/json" --request PUT --data '{"name": "Updated Product 2"}' -v http://localhost:5000/product/2
 @app.route('/product/<int:id>', methods=['PUT'])
 def put_product(id):
-    log.debug(f'PUT /product/{id}')
+    log.debug(f'PUT /products/{id}')
     try:
         existing_product = Product.find_by_id(id)
 
@@ -114,7 +114,7 @@ def put_product(id):
 
 
 # curl --request DELETE -v http://localhost:5000/product/2
-@app.route('/product/<int:id>', methods=['DELETE'])
+@app.route('/products/<int:id>', methods=['DELETE'])
 def delete_product(id):
     log.debug(f'DELETE /product/{id}')
     try:
